@@ -24,12 +24,18 @@ dependencies {
 	testImplementation( 'org.springframework.boot:spring-boot-starter-test') {
 		exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
 	}
+
 	compileOnly 'org.projectlombok:lombok:1.18.24'
 	annotationProcessor 'org.projectlombok:lombok:1.18.24'
+
 	runtimeOnly 'mysql:mysql-connector-java'
 	runtimeOnly group: 'org.postgresql', name: 'postgresql', version: '42.4.0'
+
 	testCompileOnly 'org.projectlombok:lombok:1.18.24'
 	testAnnotationProcessor 'org.projectlombok:lombok:1.18.24'
+
+	implementation 'io.springfox:springfox-swagger2:2.9.2'
+	implementation 'org.springdoc:springdoc-openapi-ui:1.6.6'
 
 //	providedRuntime 'org.springframework.boot:spring-boot-starter-tomcat'
 }
