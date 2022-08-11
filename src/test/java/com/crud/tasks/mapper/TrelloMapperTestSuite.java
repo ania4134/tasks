@@ -11,7 +11,7 @@ public class TrelloMapperTestSuite {
 
     @Test
     public void testMapToListDto() {
-    //given
+        //given
         List<TrelloList> listList = new ArrayList<>();
         TrelloList list1 = new TrelloList("123", "list no 1", true);
         TrelloList list2 = new TrelloList("145", "list no 2", false);
@@ -20,16 +20,36 @@ public class TrelloMapperTestSuite {
         listList.add(list2);
         listList.add(list3);
 
-    //when
+        //when
         TrelloMapper mapper = new TrelloMapper();
         List<TrelloListDto> resultList = mapper.mapToListDto(listList);
 
-    //then
+        //then
         Assertions.assertEquals(3, resultList.size());
         Assertions.assertEquals("list no 1", resultList.get(0).getName());
         Assertions.assertEquals("145", resultList.get(1).getId());
     }
 
+    @Test
+    public void testMapToList() {
+        //given
+        List<TrelloListDto> listListDto = new ArrayList<>();
+        TrelloListDto list1 = new TrelloListDto("list no 1", "123", true);
+        TrelloListDto list2 = new TrelloListDto("list no 2", "145", false);
+        TrelloListDto list3 = new TrelloListDto("list no 3", "148", false);
+        listListDto.add(list1);
+        listListDto.add(list2);
+        listListDto.add(list3);
+
+        //when
+        TrelloMapper mapper = new TrelloMapper();
+        List<TrelloList> resultList = mapper.mapToList(listListDto);
+
+        //then
+        Assertions.assertEquals(3, resultList.size());
+        Assertions.assertEquals("list no 1", resultList.get(0).getName());
+        Assertions.assertEquals("145", resultList.get(1).getId());
+    }
 
     @Test
     public void testMapToBoards() {
