@@ -18,10 +18,6 @@ public class DbService {
         return repository.findAll();
     }
 
-    public Task getTask(long id) {
-        return repository.findById(id);
-    }
-
     public Task saveTask(final Task task) { return repository.save(task); }
 
     public Task getTask(final Long id) throws TaskNotFoundException {
