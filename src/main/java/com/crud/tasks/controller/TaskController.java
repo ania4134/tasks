@@ -14,7 +14,7 @@ import java.util.List;
 @RestController
 @RequestMapping("/v1/tasks")
 @RequiredArgsConstructor
-public class TaskController {
+public class    TaskController {
 
     private final DbService dbService;
     private final TaskMapper taskMapper;
@@ -37,7 +37,7 @@ public class TaskController {
     }
 
     @PutMapping
-    public ResponseEntity<TaskDto> updateTask(@RequestBody TaskDto taskDto) {
+    public ResponseEntity<TaskDto> updateTask(@RequestBody TaskDto taskDto)  {
         Task task = taskMapper.mapToTask(taskDto);
         Task savedTask = dbService.saveTask(task);
         return ResponseEntity.ok(taskMapper.mapToTaskDto(savedTask));
